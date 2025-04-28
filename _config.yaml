@@ -1,0 +1,28 @@
+title: NextPath Lab
+email: [mguillau@bccrc.com]
+description: >- 
+  NextPath Lab Official Webpage.
+baseurl: ""
+url: "https://NextPath-Lab.github.io"
+github_username: NextPath-Lab
+
+theme: minima
+plugins:
+  - jekyll-feed
+
+nav_pages:
+  - title: Home
+    url: /
+  - title: About
+    url: /about.md
+  - title: Research
+    url: /research/research_index.md
+  - title: People
+    url: /people/people_index.md
+  - title: News
+    url: /all-posts.md
+  - title: Publications
+    url: /publications
+
+# paginate: 10  # Number of posts per page
+# paginate_path: "/_posts/page:num"

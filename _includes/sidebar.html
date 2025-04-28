@@ -1,0 +1,60 @@
+  <style>
+    .page-content .wrapper {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .main-content-with-sidebar {
+      width: 70%;
+      float: left;
+      padding-right: 30px;
+    }
+    
+    #sidebar-right {
+      width: 25%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      padding: 15px;
+      border-left: 1px solid #eee;
+      background: #f9f9f9;
+      min-height: 100%;
+    }
+    
+    @media screen and (max-width: 800px) {
+      .main-content-with-sidebar {
+        width: 100%;
+        float: none;
+        padding-right: 0;
+      }
+      
+      #sidebar-right {
+        position: relative;
+        width: 100%;
+        margin-top: 30px;
+        border-left: none;
+        border-top: 1px solid #eee;
+      }
+    }
+  </style>
+  
+  <div id="sidebar-right">
+    <h3>Recent Posts</h3>
+    
+    {% if site.posts.size > 0 %}
+      <ul style="list-style: none; padding-left: 0;">
+      {% for post in site.posts limit:5 %}
+        <li style="margin-bottom: 10px;">
+          <span style="color: #828282; font-size: 0.9em;">{{ post.date | date: "%b %-d, %Y" }}</span>
+          <div style="font-weight: bold;">
+            <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+          </div>
+        </li>
+      {% endfor %}
+      </ul>
+      <a href="{{ 'all-posts' }}">View all news</a>
+    {% else %}
+      <p>No posts available yet.</p>
+    {% endif %}
+  </div>
