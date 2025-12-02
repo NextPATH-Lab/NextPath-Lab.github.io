@@ -8,6 +8,10 @@ nav-include: true
 
 # Publications
 
-<ol>
-    <li>2023 - <a href = "https://www.biorxiv.org/content/10.1101/2023.05.26.542516v2">Self-Assembly of a Repeatable DNA Nanohinge System Supporting Higher Order Structure Formation</a></li>
-</ol>
+## 2026
+
+## 2025
+
+## 2024
+
+## 2023
