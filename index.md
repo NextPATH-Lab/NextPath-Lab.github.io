@@ -6,7 +6,7 @@ nav-order: 1
 nav-include: false
 ---
 
-## ~Pioneering the next generation of pathology informatics~ :D
+## ~Pioneering the next generation of pathology informatics~ :D 
 <img src = "./images/nextpath-logo.png" align="left"  width = "200px" 
 style="margin-right:10px; margin-bottom:10px; border: 3px solid #000000;"/>
 <p style = "text-align: justify;">
