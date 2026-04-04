@@ -1,0 +1,22 @@
+# _data/research_scopes.yml
+
+- title: "Leveraging Modern Machine Learning for Complex Analyses"
+  authors: "Fumiya Inaba (Guillaud Lab) probably"
+  type: "Computational Analyses"
+  pdf: "https://nextpath-lab.github.io/research/scopes/modern-machine-learning-scope"
+
+- title: "Highly Multiplexed Immunofluorescence and Histochemistry"
+  authors: "Puneet Arora (Guillaud Lab) probably"
+  type: "Multiplexed Imaging"
+
+- title: "Agent-based Modelling of 3D Tumor Growth"
+  authors: "Gavin MacAulay (Guillaud Lab) probably"
+  type: "Computational Analyses"
+
+- title: "Mitigating Overtreatment in Patients with Breast Ductal Carcinoma In-Situ"
+  authors: "Someone probably"
+  type: "Breast Cancer"
+
+- title: "Measuring the Aggressiveness of Prostate Cancer"
+  authors: "Fumiya Inaba (Guillaud Lab) probably"
+  type: "Prostate Cancer"

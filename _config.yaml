@@ -10,10 +10,16 @@ theme: minima
 plugins:
   - jekyll-feed
 
+collections:
+  wiki: 
+    output: true 
+    permalink: /wiki/:year/:month/:day/:title.html
+
 header_pages:
   - index.md
   - people/people_index.md
   - research/research_index.md
   - news.md
   - publications/pubs.md
+  - wiki_index.md
   - software/software_index.md
