@@ -1,0 +1,61 @@
+---
+import Layout from '../layouts/Layout.astro';
+import researchScopes from '../data/research_scopes.json';
+
+const grouped = researchScopes.reduce((acc, scope) => {
+    const type = scope.type || 'Other';
+    if (!acc[type]) {
+        acc[type] = [];
+    }
+    acc[type].push(scope);
+    return acc;
+}, {} as Record<string, any[]>);
+
+const types = Object.keys(grouped).sort();
+---
+
+<Layout title="Research">
+    <div style="margin-bottom: 2rem;">
+        <img src="/assets/nextpath-logo.png" style="width: 100%; max-width: 400px;" />
+    </div>
+
+    <h1 class="text-gradient">Scope of Research</h1>
+    <p style="text-align: justify;">
+        NextPath Lab advances next-generation pathomics by combining cancer biology, digital pathology, and spatial data science. We develop computational methods that transform cell- and tissue-level imaging into quantitative biomarkers, enabling earlier detection of aggressive lesions and deeper understanding of tumor micro-environments. Our work spans machine learning, graph-based modeling, and high-dimensional spatial biology, with a focus on building interpretable tools that bridge histopathology and molecular phenotype. Through collaborative, data-driven research, we aim to push the boundaries of precision oncology and create scalable technologies that improve patient prognostication and clinical decision-making.
+    </p>
+    <p>Specific scopes and interests are listed below:</p>
+
+    {types.map(type => (
+        <h2 style="border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-top: 40px;" class="text-gradient">
+            {type}
+        </h2>
+
+        <div class="publications-list">
+            {grouped[type].map(pub => (
+                <div style="display: flex; gap: 20px; margin-bottom: 2rem; background: var(--surface-hover); padding: 1.5rem; border-radius: var(--radius); border: 1px solid var(--border);">
+                    {pub.image && (
+                        <div style="flex: 0 0 150px;">
+                            <img src={pub.image.startsWith('/') ? pub.image : `/${pub.image}`} alt="Teaser" style="width: 100%; border-radius: 4px; border: 1px solid var(--border);" />
+                        </div>
+                    )}
+                    <div style="flex: 1;">
+                        <h3 style="margin-top: 0; margin-bottom: 5px;">
+                            {pub.pdf ? <a href={pub.pdf}>{pub.title}</a> : <span>{pub.title}</span>}
+                        </h3>
+                        <div style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0.5rem;" set:html={'By: ' + pub.authors} />
+                        
+                        <div style="margin-top: 12px; display: flex; gap: 0.5rem;">
+                            {pub.pdf && <a href={pub.pdf} class="btn btn-outline" style="padding: 0.3rem 0.8rem; font-size: 0.85rem;">More Info</a>}
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+    ))}
+
+    <hr />
+    <p style="text-align: center; color: var(--text-muted);">
+        Otherwise not much to say here at the moment but will be updated soon!<br />
+        For now, please refer to the BC Cancer lab websites.
+    </p>
+</Layout>

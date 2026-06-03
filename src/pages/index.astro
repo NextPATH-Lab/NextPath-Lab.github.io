@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Sidebar from '../components/Sidebar.astro';
+---
+
+<Layout title="Home">
+    <style>
+        .home-grid {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 2rem;
+            align-items: start;
+        }
+        @media (max-width: 800px) {
+            .home-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <div class="home-grid">
+        <!-- Left Column: Main Content -->
+        <div>
+            <h2 class="text-gradient">~Pioneering the next generation of pathology informatics~ 👾</h2>
+
+            <img src="/assets/HomeImage.png" align="left" width="800px" style="margin-right:10px; margin-bottom:10px; border: 3px solid var(--border); border-radius: var(--radius); max-width: 100%;" />
+
+            <p style="margin-top: 1rem;">
+                <a href="https://www.bccrc.ca/dept/io/labs/guillaud-lab">Guillaud Lab</a> | 
+                <a href="https://www.bccrc.ca/dept/io/labs/macaulay-lab">MacAulay Lab</a> | 
+                <a href="https://www.bccrc.ca/dept/io/labs/enfield-lab">Enfield Lab</a>
+            </p>
+
+            <div style="clear:both; margin-bottom:25px;"></div>
+
+            <h2 class="text-gradient">Current Opportunities</h2>
+            <p style="text-align: justify;">
+                We welcome student volunteers interested in our research!
+            </p>
+
+            <p><a href="/research_index" class="btn">Learn about our research →</a></p>
+
+            <h2 class="text-gradient">Support us!</h2>
+            <p>
+                Fumi works very hard to maintain this website! He would be ecstatically elated if you bought him a coffee! Donate here &rarr; <a href="#">suspicious link</a>
+            </p>
+        </div>
+
+        <!-- Right Column: Sidebar -->
+        <Sidebar />
+    </div>
+</Layout>

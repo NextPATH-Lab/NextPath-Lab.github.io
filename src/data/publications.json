@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Instance scoring via distillation of multiple instance classifiers for interpretable digital pathology",
+    "authors": "**Fumiya Inaba**, Mira Keyes, Calum MacAulay, Martial Guillaud",
+    "venue": "SPIE Proceedings Digital Library",
+    "year": 2026,
+    "pdf": "https://www.spiedigitallibrary.org/conference-proceedings-of-spie/13932/1393205/Instance-scoring-via-distillation-of-multiple-instance-classifiers-for-interpretable/10.1117/12.3087751.short?tab=ArticleLink",
+    "code": "https://github.com/NextPATH-Lab/MIL-Instance-Scoring",
+    "image": "images/SPIE_DL_Logo_Nav.png"
+  },
+  {
+    "title": "Large-scale DNA organization analysis of primary breast cancers for prediction of axillary lymph node metastases",
+    "authors": "**Nikolay Alabi**, Alan Nichol, Fumiya Inaba, Anita Carraro, Soufiane El-Hallani, Martial Guillaud",
+    "venue": "The Breast",
+    "year": 2026,
+    "pdf": "https://www.thebreastonline.com/article/S0960-9776(26)00022-6/fulltext",
+    "code": "https://github.com/NikolayAlabi/LDO",
+    "image": "images/the-breast-cover.jpg"
+  },
+  {
+    "title": "Spectral Unmixing to Reduce Refraction Effects in Feulgen-Stained Slides",
+    "authors": "**Kouther Noureddine**, Paul Gallagher, Anita Carraro, Jagoda Korbelik, Branko Palcic, Martial Guillaud, Calum MacAulay",
+    "venue": "Biomedical Sensors, Sensors",
+    "year": 2026,
+    "pdf": "https://www.mdpi.com/1424-8220/26/1/57",
+    "code": null,
+    "image": "/images/sensors-logo-sq.jpg"
+  },
+  {
+    "title": "Machine Learning and Computed Tomography Radiomics to Predict Disease Progression to Upfront Pembrolizumab Monotherapy in Advanced Non-Small-Cell Lung Cancer: A Pilot Study",
+    "authors": "**Ian Janzen**, Cheryl Ho, Barbara Melosky, Qian Ye, Jessica Li, Gang Wang, Stephen Lam, Calum MacAulay, Ren Yuan",
+    "venue": "Special Issue: Advances in Oncological Imaging, Cancers",
+    "year": 2025,
+    "pdf": "https://www.mdpi.com/2072-6694/17/1/58",
+    "image": "/images/cancers-logo-print.jpg",
+    "code": null
+  }
+]
