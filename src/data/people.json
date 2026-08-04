@@ -1,0 +1,66 @@
+[
+  {
+    "name": "Dr. Martial Guillaud, PhD",
+    "group": "pi",
+    "role": null,
+    "image": "/images/people/Martial_cropped_warm.jpg",
+    "order": 1,
+    "blurb": "martial-guillaud.md"
+  },
+  {
+    "name": "Dr. Calum MacAulay, PhD",
+    "group": "pi",
+    "role": null,
+    "image": "/images/people/IO_CalumMacAulay.jpeg",
+    "order": 2,
+    "blurb": "calum-macaulay.md"
+  },
+  {
+    "name": "Ian Janzen",
+    "group": "student",
+    "role": "PhD Candidate, MacAulay Lab",
+    "image": null,
+    "order": 1,
+    "blurb": "ian-janzen.md"
+  },
+  {
+    "name": "Kouther Noureddine",
+    "group": "student",
+    "role": "PhD Candidate, MacAulay Lab",
+    "image": null,
+    "order": 2,
+    "blurb": "kouther-noureddine.md"
+  },
+  {
+    "name": "Fumi Inaba",
+    "group": "student",
+    "role": "PhD Student, Guillaud Lab",
+    "image": "/images/people/Fumi_professional_headshot.png",
+    "order": 3,
+    "blurb": "fumi-inaba.md"
+  },
+  {
+    "name": "Puneet Arora",
+    "group": "student",
+    "role": "MSc Student, Guillaud Lab",
+    "image": "/images/people/Puneet_IMG_6396.jpeg",
+    "order": 4,
+    "blurb": "puneet-arora.md"
+  },
+  {
+    "name": "Gavin MacAulay",
+    "group": "student",
+    "role": "MSc Student, Guillaud Lab",
+    "image": null,
+    "order": 5,
+    "blurb": "gavin-macaulay.md"
+  },
+  {
+    "name": "Willie Wu",
+    "group": "student",
+    "role": "MSc Student, Guillaud/Enfield Lab",
+    "image": null,
+    "order": 6,
+    "blurb": "willie-wu.md"
+  }
+]

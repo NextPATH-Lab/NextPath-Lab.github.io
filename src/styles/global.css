@@ -1,16 +1,81 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
 
+/*
+ * Palette sampled from the NextPath logo:
+ *   deep navy   #0b3c66   (NEXT wordmark / DNA helix)
+ *   brand blue  #1673c0   (PATH wordmark)
+ *   bright blue #2b9ede
+ *   cyan glow   #22c3e6   (network nodes / arrow)
+ */
 :root {
-    --bg-color: #0f1115;
-    --surface: #1e2128;
-    --surface-hover: #2a2e38;
-    --primary: #6366f1;
-    --primary-hover: #4f46e5;
-    --text: #f3f4f6;
-    --text-muted: #9ca3af;
-    --border: #374151;
+    --brand-deep: #0b3c66;
+    --brand: #1673c0;
+    --brand-bright: #2b9ede;
+    --brand-cyan: #22c3e6;
+
     --radius: 12px;
     --transition: all 0.2s ease-in-out;
+    color-scheme: light dark;
+}
+
+/* --- Dark theme (default) ------------------------------------------------ */
+:root,
+:root[data-theme='dark'] {
+    --bg-color: #0a1622;
+    --surface: #101f30;
+    --surface-hover: #17293d;
+    --border: #24394f;
+    --header-bg: rgba(16, 31, 48, 0.8);
+    --primary: #2b9ede;
+    --primary-hover: #57b6e8;
+    --primary-glow: rgba(43, 158, 222, 0.35);
+    --text: #e8f1f8;
+    --text-muted: #90a9c0;
+    --code: #4fd1e8;
+    --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+    --gradient-from: #35d0ee;
+    --gradient-to: #2b8fdc;
+    color-scheme: dark;
+}
+
+/* --- Light theme --------------------------------------------------------- */
+:root[data-theme='light'] {
+    --bg-color: #f3f7fb;
+    --surface: #ffffff;
+    --surface-hover: #eaf2f9;
+    --border: #d2e0ec;
+    --header-bg: rgba(255, 255, 255, 0.85);
+    --primary: #1266aa;
+    --primary-hover: #0d4d84;
+    --primary-glow: rgba(18, 102, 170, 0.25);
+    --text: #0d2233;
+    --text-muted: #566b80;
+    --code: #0b6b8a;
+    --card-shadow: 0 8px 28px rgba(11, 60, 102, 0.08);
+    --gradient-from: #1594c4;
+    --gradient-to: #0f5fa4;
+    color-scheme: light;
+}
+
+/* Follow the OS preference until the visitor picks a theme (also covers no-JS). */
+@media (prefers-color-scheme: light) {
+    :root:not([data-theme]) {
+        --bg-color: #f3f7fb;
+        --surface: #ffffff;
+        --surface-hover: #eaf2f9;
+        --border: #d2e0ec;
+        --header-bg: rgba(255, 255, 255, 0.85);
+        --primary: #1266aa;
+        --primary-hover: #0d4d84;
+        --primary-glow: rgba(18, 102, 170, 0.25);
+        --text: #0d2233;
+        --text-muted: #566b80;
+        --code: #0b6b8a;
+        --card-shadow: 0 8px 28px rgba(11, 60, 102, 0.08);
+        --gradient-from: #1594c4;
+        --gradient-to: #0f5fa4;
+        color-scheme: light;
+    }
 }
 
 body {
@@ -25,7 +90,7 @@ body {
 }
 
 header {
-    background-color: rgba(30, 33, 40, 0.8);
+    background-color: var(--header-bg);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
     padding: 1rem 2rem;
@@ -35,27 +100,27 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
+    gap: 1rem;
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, #a855f7, #6366f1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    text-decoration: none;
+    flex-shrink: 0;
 }
 
 .logo img {
-    height: 40px;
+    height: 44px;
+    max-width: 100%;
+    display: block;
 }
 
 .nav-links {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
 }
 
 .nav-links a {
@@ -67,12 +132,61 @@ header {
 }
 
 .nav-links a:hover {
-    color: var(--text);
+    color: var(--primary);
+    text-decoration: none;
+}
+
+/* Light/dark switch */
+.theme-toggle {
+    margin-left: 1.5rem;
+    width: 38px;
+    height: 38px;
+    display: inline-grid;
+    place-items: center;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background-color: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.theme-toggle:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+    background-color: var(--surface-hover);
+}
+
+.theme-toggle svg {
+    width: 18px;
+    height: 18px;
+}
+
+.theme-toggle .icon-sun {
+    display: none;
+}
+
+:root[data-theme='dark'] .theme-toggle .icon-sun {
+    display: block;
+}
+
+:root[data-theme='dark'] .theme-toggle .icon-moon {
+    display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) .theme-toggle .icon-sun {
+        display: block;
+    }
+    :root:not([data-theme]) .theme-toggle .icon-moon {
+        display: none;
+    }
 }
 
 .btn {
     background-color: var(--primary);
-    color: white;
+    color: #ffffff;
     border: none;
     padding: 0.75rem 1.5rem;
     border-radius: var(--radius);
@@ -86,8 +200,10 @@ header {
 
 .btn:hover {
     background-color: var(--primary-hover);
+    color: #ffffff;
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+    box-shadow: 0 4px 12px var(--primary-glow);
+    text-decoration: none;
 }
 
 .btn-outline {
@@ -98,7 +214,8 @@ header {
 
 .btn-outline:hover {
     background-color: var(--surface-hover);
-    border-color: var(--text-muted);
+    border-color: var(--primary);
+    color: var(--primary);
     box-shadow: none;
 }
 
@@ -116,7 +233,7 @@ main {
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 2rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--card-shadow);
 }
 
 /* Extra typography */
@@ -137,8 +254,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .text-gradient {
-    background: linear-gradient(135deg, #a855f7, #6366f1);
+    background: linear-gradient(135deg, var(--gradient-from), var(--gradient-to));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -147,15 +265,15 @@ p {
 }
 
 code {
-    background-color: var(--surface);
+    background-color: var(--surface-hover);
     padding: 0.2rem 0.4rem;
     border-radius: 4px;
     font-size: 0.9em;
-    color: #a855f7;
+    color: var(--code);
 }
 
 pre {
-    background-color: var(--surface);
+    background-color: var(--surface-hover);
     padding: 1rem;
     border-radius: var(--radius);
     overflow-x: auto;
