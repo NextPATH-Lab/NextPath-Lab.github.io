@@ -5,7 +5,10 @@
     "role": null,
     "image": "/images/people/Martial_cropped_warm.jpg",
     "order": 1,
-    "blurb": "martial-guillaud.md"
+    "blurb": "martial-guillaud.md",
+    "links": {
+      "website": "https://www.bccrc.ca/dept/io/labs/guillaud-lab"
+    }
   },
   {
     "name": "Dr. Calum MacAulay, PhD",
@@ -13,7 +16,10 @@
     "role": null,
     "image": "/images/people/IO_CalumMacAulay.jpeg",
     "order": 2,
-    "blurb": "calum-macaulay.md"
+    "blurb": "calum-macaulay.md",
+    "links": {
+      "website": "https://www.bccrc.ca/dept/io/labs/macaulay-lab"
+    }
   },
   {
     "name": "Ian Janzen",
@@ -21,7 +27,8 @@
     "role": "PhD Candidate, MacAulay Lab",
     "image": null,
     "order": 1,
-    "blurb": "ian-janzen.md"
+    "blurb": "ian-janzen.md",
+    "links": {}
   },
   {
     "name": "Kouther Noureddine",
@@ -29,7 +36,8 @@
     "role": "PhD Candidate, MacAulay Lab",
     "image": null,
     "order": 2,
-    "blurb": "kouther-noureddine.md"
+    "blurb": "kouther-noureddine.md",
+    "links": {}
   },
   {
     "name": "Fumi Inaba",
@@ -37,7 +45,8 @@
     "role": "PhD Student, Guillaud Lab",
     "image": "/images/people/Fumi_professional_headshot.png",
     "order": 3,
-    "blurb": "fumi-inaba.md"
+    "blurb": "fumi-inaba.md",
+    "links": {}
   },
   {
     "name": "Puneet Arora",
@@ -45,7 +54,8 @@
     "role": "MSc Student, Guillaud Lab",
     "image": "/images/people/Puneet_IMG_6396.jpeg",
     "order": 4,
-    "blurb": "puneet-arora.md"
+    "blurb": "puneet-arora.md",
+    "links": {}
   },
   {
     "name": "Gavin MacAulay",
@@ -53,7 +63,8 @@
     "role": "MSc Student, Guillaud Lab",
     "image": null,
     "order": 5,
-    "blurb": "gavin-macaulay.md"
+    "blurb": "gavin-macaulay.md",
+    "links": {}
   },
   {
     "name": "Willie Wu",
@@ -61,6 +72,7 @@
     "role": "MSc Student, Guillaud/Enfield Lab",
     "image": null,
     "order": 6,
-    "blurb": "willie-wu.md"
+    "blurb": "willie-wu.md",
+    "links": {}
   }
 ]

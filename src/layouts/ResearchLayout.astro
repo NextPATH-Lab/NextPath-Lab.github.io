@@ -1,0 +1,43 @@
+---
+import Layout from './Layout.astro';
+
+export interface Props {
+    title: string;
+    type?: string;
+    authors?: string;
+    lead?: string;
+    image?: string;
+}
+
+const { title, type, authors, lead, image } = Astro.props;
+---
+
+<Layout title={title}>
+    <p style="margin-top: 0;">
+        <a href="/research_index" style="color: var(--text-muted); font-weight: 600;">&larr; Back to Research</a>
+    </p>
+
+    {type && (
+        <div style="color: var(--primary); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase;">
+            {type}
+        </div>
+    )}
+
+    <h1 class="text-gradient" style="margin-top: 0.5rem;">{title}</h1>
+
+    {authors && (
+        <p style="color: var(--text-muted); margin-top: -0.5rem;" set:html={'By: ' + authors} />
+    )}
+
+    {image && (
+        <img
+            src={image.startsWith('/') ? image : `/${image}`}
+            alt={title}
+            style="width: 100%; border-radius: var(--radius); border: 1px solid var(--border); margin: 1.5rem 0;"
+        />
+    )}
+
+    {lead && <p style="font-size: 1.1rem; text-align: justify;">{lead}</p>}
+
+    <slot />
+</Layout>

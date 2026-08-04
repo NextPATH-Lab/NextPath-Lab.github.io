@@ -1,0 +1,65 @@
+---
+import ResearchLayout from '../../layouts/ResearchLayout.astro';
+---
+
+<ResearchLayout
+    title="Leveraging Modern Machine Learning for Complex Analyses"
+    type="Computational Analyses"
+    authors="Fumiya Inaba (Guillaud Lab) probably"
+    lead="Placeholder lead paragraph — a one- or two-sentence summary of the project that sits directly under the title."
+>
+    <h2>Overview</h2>
+    <p style="text-align: justify;">
+        Placeholder body text. Everything below the layout's front matter is plain HTML, so
+        this page can be formatted however this project needs.
+    </p>
+
+    <!-- A figure with a caption -->
+    <figure class="research-figure">
+        <img src="/assets/HomeImage.png" alt="Placeholder figure" />
+        <figcaption>Figure 1. Placeholder caption describing the figure.</figcaption>
+    </figure>
+
+    <h2>Methods</h2>
+
+    <!-- Two figures side by side; collapses to one column on narrow screens -->
+    <div class="research-grid">
+        <figure class="research-figure" style="margin: 0;">
+            <img src="/assets/HomeImage.png" alt="Placeholder figure" />
+            <figcaption>Figure 2a. Left panel.</figcaption>
+        </figure>
+        <figure class="research-figure" style="margin: 0;">
+            <img src="/assets/HomeImage.png" alt="Placeholder figure" />
+            <figcaption>Figure 2b. Right panel.</figcaption>
+        </figure>
+    </div>
+
+    <div class="research-callout">
+        <strong>Callout box</strong> — for a key result, a caveat, or a note worth pulling
+        out of the body text.
+    </div>
+
+    <h2>Video</h2>
+
+    <!-- Embedded video (YouTube/Vimeo). Swap the src for the real embed URL. -->
+    <!--
+    <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Video title" allowfullscreen></iframe>
+    </div>
+    -->
+
+    <!-- Or a self-hosted video file dropped in public/assets/ -->
+    <!--
+    <figure class="research-figure">
+        <video controls muted loop playsinline src="/assets/example.mp4"></video>
+        <figcaption>Video 1. Placeholder caption.</figcaption>
+    </figure>
+    -->
+
+    <p style="color: var(--text-muted);">Video content to be added.</p>
+
+    <h2>Related Publications</h2>
+    <p>
+        See the <a href="/pubs">publications page</a> for the full list.
+    </p>
+</ResearchLayout>

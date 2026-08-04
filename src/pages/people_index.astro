@@ -20,6 +20,31 @@ const blurbHtml = (person: { name: string; blurb?: string | null }) => {
     return mod.compiledContent();
 };
 
+// Profile links, rendered in this order. Keys match the `links` object in people.json;
+// anything missing or empty is simply skipped.
+const LINK_TYPES = [
+    { key: 'website', label: 'Website' },
+    { key: 'email', label: 'Email' },
+    { key: 'orcid', label: 'ORCID' },
+    { key: 'scholar', label: 'Google Scholar' },
+    { key: 'linkedin', label: 'LinkedIn' },
+    { key: 'github', label: 'GitHub' },
+];
+
+const personLinks = (person: { name: string; links?: Record<string, string | undefined> }) => {
+    const links = (person.links ?? {}) as Record<string, string | undefined>;
+    return LINK_TYPES.filter(({ key }) => links[key]).map(({ key, label }) => {
+        const value = links[key] as string;
+        const isEmail = key === 'email';
+        return {
+            key,
+            label,
+            href: isEmail && !value.startsWith('mailto:') ? `mailto:${value}` : value,
+            external: !isEmail,
+        };
+    });
+};
+
 // Section order on the page. `group` in people.json must match one of these ids.
 const sections = [
     { id: 'pi', heading: 'Principal Investigators', empty: 'No principal investigators listed currently.' },
@@ -60,6 +85,20 @@ const membersOf = (id: string) =>
                                 {person.role && (
                                     <p style="color: var(--text-muted); margin-top: 0;">{person.role}</p>
                                 )}
+                                {personLinks(person).length > 0 && (
+                                    <div class="person-links">
+                                        {personLinks(person).map(link => (
+                                            <a
+                                                href={link.href}
+                                                class="person-link"
+                                                target={link.external ? '_blank' : undefined}
+                                                rel={link.external ? 'noopener noreferrer' : undefined}
+                                            >
+                                                {link.label}
+                                            </a>
+                                        ))}
+                                    </div>
+                                )}
                                 <div class="person-bio" set:html={blurbHtml(person)} />
                             </div>
                         </div>
@@ -71,6 +110,32 @@ const membersOf = (id: string) =>
 </Layout>
 
 <style>
+    .person-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 0.5rem 0 0.25rem;
+    }
+
+    .person-link {
+        font-size: 0.8rem;
+        font-weight: 600;
+        line-height: 1;
+        padding: 0.35rem 0.7rem;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: var(--transition);
+    }
+
+    .person-link:hover {
+        color: var(--primary);
+        border-color: var(--primary);
+        background-color: var(--surface);
+        text-decoration: none;
+    }
+
     /* :global() is needed because the bio HTML comes from set:html, not the template. */
     .person-bio :global(p) {
         text-align: justify;
