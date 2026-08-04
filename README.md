@@ -6,6 +6,12 @@ npm create astro@latest -- --template minimal
 
 > 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
+## 📇 Content & data
+
+Most page content (people, publications, research scopes, news, wiki) is driven by data
+files rather than markup. See [`src/data/README.md`](src/data/README.md) for every file,
+its supported keys, and the gotchas.
+
 ## 🚀 Project Structure
 
 Inside of your Astro project, you'll see the following folders and files:

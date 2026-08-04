@@ -1,1 +1,1 @@
-Professional blurb here.
+Puneet is a Master's student in the Guillaud lab working on multiplex immunofluorescence staining and analysis.

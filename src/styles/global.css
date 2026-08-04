@@ -89,7 +89,10 @@ body {
     min-height: 100vh;
 }
 
-header {
+/* Scoped to the site header on purpose: a bare `header` selector also matched
+   <header> elements used inside page content, making them sticky at z-index 100
+   so they floated over the nav bar. */
+body > header {
     background-color: var(--header-bg);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);

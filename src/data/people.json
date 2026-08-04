@@ -11,42 +11,18 @@
     }
   },
   {
-    "name": "Dr. Calum MacAulay, PhD",
-    "group": "pi",
-    "role": null,
-    "image": "/images/people/IO_CalumMacAulay.jpeg",
-    "order": 2,
-    "blurb": "calum-macaulay.md",
-    "links": {
-      "website": "https://www.bccrc.ca/dept/io/labs/macaulay-lab"
-    }
-  },
-  {
-    "name": "Ian Janzen",
-    "group": "student",
-    "role": "PhD Candidate, MacAulay Lab",
-    "image": null,
-    "order": 1,
-    "blurb": "ian-janzen.md",
-    "links": {}
-  },
-  {
-    "name": "Kouther Noureddine",
-    "group": "student",
-    "role": "PhD Candidate, MacAulay Lab",
-    "image": null,
-    "order": 2,
-    "blurb": "kouther-noureddine.md",
-    "links": {}
-  },
-  {
     "name": "Fumi Inaba",
     "group": "student",
-    "role": "PhD Student, Guillaud Lab",
+    "role": "PhD Candidate, Guillaud Lab",
     "image": "/images/people/Fumi_professional_headshot.png",
     "order": 3,
     "blurb": "fumi-inaba.md",
-    "links": {}
+    "links": {
+      "website" : "https://fuminaba.com",
+      "linkedin" : "https://www.linkedin.com/in/fumi-inaba/",
+      "github" : "https://github.com/fuminaba/",
+      "orcid" : "https://orcid.org/my-orcid?orcid=0009-0007-7848-573X"
+    }
   },
   {
     "name": "Puneet Arora",
@@ -74,5 +50,14 @@
     "order": 6,
     "blurb": "willie-wu.md",
     "links": {}
+  },
+  {
+    "name" : "Eva Lechner Hill",
+    "group" : "coop",
+    "role" : "Volunteer, Summer 2026",
+    "image" : null,
+    "order" : 1,
+    "blurb" : "eva-lechner-hill.md",
+    "links" : {}
   }
 ]
