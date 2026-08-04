@@ -40,7 +40,9 @@
     "image": null,
     "order": 5,
     "blurb": "gavin-macaulay.md",
-    "links": {}
+    "links": {
+      "orcid" : "https://orcid.org/0009-0005-2929-7359"
+    }
   },
   {
     "name": "Willie Wu",
