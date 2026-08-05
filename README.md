@@ -6,6 +6,28 @@ adding content: **news posts, wiki entries, people, and publications.**
 You do not need to know Astro, HTML, or CSS to do any of that. Adding content means
 creating a markdown file or adding an entry to a data file — nothing else.
 
+### Important Note Before You Start
+This page is managed with **git** and **github** which tracks changes uploaded to **github**.
+* Multiple people can upload their changes
+* This can cause conflicts when multiple people edit the same file
+
+To prevent any headaches, ALWAYS run the following before starting to make any changes:
+```
+$ git pull
+```
+This will download any changes others have made.
+If this may STILL cause a conflict - which is why you should always create your OWN branch, and make a pull request.
+
+**DO NOT COMMIT TO THE MAIN BRANCH**
+
+Before starting your changes, run the following after `git pull`.
+```
+$ git switch -c <new-branch-name>
+```
+* You can replace `<new-branch-name>` with any name you like. This will be the branch, or 'version' used to track your own changes.
+* By doing so, you are making your own unique 'version' which others do not have access to yet.
+* A 'Pull Request' is a request made to the GitHub repository managers to merge your changes into the main version.
+
 ### Common files you may need to edit
 
 | I want to… | Edit only this |
