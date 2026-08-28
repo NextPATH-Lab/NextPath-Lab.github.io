@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Sidebar from '../components/Sidebar.astro';
+---
+
+<Layout title="Home">
+    <style>
+        .home-grid {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 2rem;
+            align-items: start;
+        }
+        @media (max-width: 800px) {
+            .home-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <div class="home-grid">
+        <!-- Left Column: Main Content -->
+        <div>
+            <h2 class="text-gradient">Next Generation Pathology Informatics at BC Cancer Research Institute</h2>
+
+            <!-- HOME PAGE MAIN MEDIA (IMAGE) -->
+            <img src="/assets/HomeImage.png" align="left" width="800px" style="margin-right:10px; margin-bottom:10px; border: 3px solid var(--border); border-radius: var(--radius); max-width: 100%;" />
+
+            <div style="clear:both; margin-bottom:25px;"></div>
+
+            <h2 class="text-gradient">Current Opportunities</h2>
+            <p style="text-align: justify;">
+                We welcome student volunteers interested in our research!
+            </p>
+            <div style="display: flex;gap:10px;">
+                <p><a href="/research_index" class="btn">Learn about our research →</a></p>
+                <p><a href="/opportunities" class="btn">Learn about our opportunities →</a></p>
+            </div>
+            <h2 class="text-gradient">Support us!</h2>
+            <p>
+                The website is still under construction, for specific inquiries reach out via email!
+            </p>
+        </div>
+
+        <!-- Right Column: Sidebar -->
+        <Sidebar />
+    </div>
+</Layout>

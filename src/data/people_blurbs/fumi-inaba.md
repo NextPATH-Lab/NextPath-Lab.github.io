@@ -1,0 +1,1 @@
+Fumi is a PhD candidate in the Guillaud lab. His research revolves around developing clinically intepretable digital pathology-based biomarkers to predict clinical outcomes of early stage cancer patients. He has received awards such as the Robert F. Wagner All Conference Best Student Paper award from the SPIE Medical Imaging conference in 2026.

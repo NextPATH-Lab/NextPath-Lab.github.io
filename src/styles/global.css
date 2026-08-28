@@ -1,0 +1,358 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+/*
+ * Palette sampled from the NextPath logo:
+ *   deep navy   #0b3c66   (NEXT wordmark / DNA helix)
+ *   brand blue  #1673c0   (PATH wordmark)
+ *   bright blue #2b9ede
+ *   cyan glow   #22c3e6   (network nodes / arrow)
+ */
+:root {
+    --brand-deep: #0b3c66;
+    --brand: #1673c0;
+    --brand-bright: #2b9ede;
+    --brand-cyan: #22c3e6;
+
+    --radius: 12px;
+    --transition: all 0.2s ease-in-out;
+    color-scheme: light dark;
+}
+
+/* --- Dark theme (default) ------------------------------------------------ */
+:root,
+:root[data-theme='dark'] {
+    --bg-color: #0a1622;
+    --surface: #101f30;
+    --surface-hover: #17293d;
+    --border: #24394f;
+    --header-bg: rgba(16, 31, 48, 0.8);
+    --primary: #2b9ede;
+    --primary-hover: #57b6e8;
+    --primary-glow: rgba(43, 158, 222, 0.35);
+    --text: #e8f1f8;
+    --text-muted: #90a9c0;
+    --code: #4fd1e8;
+    --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+    --gradient-from: #35d0ee;
+    --gradient-to: #2b8fdc;
+    color-scheme: dark;
+}
+
+/* --- Light theme --------------------------------------------------------- */
+:root[data-theme='light'] {
+    --bg-color: #f3f7fb;
+    --surface: #ffffff;
+    --surface-hover: #eaf2f9;
+    --border: #d2e0ec;
+    --header-bg: rgba(255, 255, 255, 0.85);
+    --primary: #1266aa;
+    --primary-hover: #0d4d84;
+    --primary-glow: rgba(18, 102, 170, 0.25);
+    --text: #0d2233;
+    --text-muted: #566b80;
+    --code: #0b6b8a;
+    --card-shadow: 0 8px 28px rgba(11, 60, 102, 0.08);
+    --gradient-from: #1594c4;
+    --gradient-to: #0f5fa4;
+    color-scheme: light;
+}
+
+/* Follow the OS preference until the visitor picks a theme (also covers no-JS). */
+@media (prefers-color-scheme: light) {
+    :root:not([data-theme]) {
+        --bg-color: #f3f7fb;
+        --surface: #ffffff;
+        --surface-hover: #eaf2f9;
+        --border: #d2e0ec;
+        --header-bg: rgba(255, 255, 255, 0.85);
+        --primary: #1266aa;
+        --primary-hover: #0d4d84;
+        --primary-glow: rgba(18, 102, 170, 0.25);
+        --text: #0d2233;
+        --text-muted: #566b80;
+        --code: #0b6b8a;
+        --card-shadow: 0 8px 28px rgba(11, 60, 102, 0.08);
+        --gradient-from: #1594c4;
+        --gradient-to: #0f5fa4;
+        color-scheme: light;
+    }
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Scoped to the site header on purpose: a bare `header` selector also matched
+   <header> elements used inside page content, making them sticky at z-index 100
+   so they floated over the nav bar. */
+body > header {
+    background-color: var(--header-bg);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    gap: 1rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.logo img {
+    height: 44px;
+    max-width: 100%;
+    display: block;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+/* Light/dark switch */
+.theme-toggle {
+    margin-left: 1.5rem;
+    width: 38px;
+    height: 38px;
+    display: inline-grid;
+    place-items: center;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background-color: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.theme-toggle:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+    background-color: var(--surface-hover);
+}
+
+.theme-toggle svg {
+    width: 18px;
+    height: 18px;
+}
+
+.theme-toggle .icon-sun {
+    display: none;
+}
+
+:root[data-theme='dark'] .theme-toggle .icon-sun {
+    display: block;
+}
+
+:root[data-theme='dark'] .theme-toggle .icon-moon {
+    display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) .theme-toggle .icon-sun {
+        display: block;
+    }
+    :root:not([data-theme]) .theme-toggle .icon-moon {
+        display: none;
+    }
+}
+
+.btn {
+    background-color: var(--primary);
+    color: #ffffff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: var(--primary-hover);
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px var(--primary-glow);
+    text-decoration: none;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+}
+
+.btn-outline:hover {
+    background-color: var(--surface-hover);
+    border-color: var(--primary);
+    color: var(--primary);
+    box-shadow: none;
+}
+
+main {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.card {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--card-shadow);
+}
+
+/* Extra typography */
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    color: var(--text);
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, var(--gradient-from), var(--gradient-to));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+p {
+    line-height: 1.6;
+}
+
+code {
+    background-color: var(--surface-hover);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: var(--code);
+}
+
+pre {
+    background-color: var(--surface-hover);
+    padding: 1rem;
+    border-radius: var(--radius);
+    overflow-x: auto;
+    border: 1px solid var(--border);
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: var(--border);
+    margin: 2rem 0;
+}
+
+/* --- Research detail pages ----------------------------------------------- */
+/* Reusable building blocks for anything under src/pages/research_pages/.
+   These live here (not in a scoped <style>) so slotted page content can use them. */
+
+.research-figure {
+    margin: 2rem 0;
+}
+
+.research-figure img,
+.research-figure video {
+    width: 100%;
+    display: block;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+}
+
+.research-figure figcaption {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 0.6rem;
+    text-align: center;
+}
+
+/* Side-by-side figures/cards that collapse to one column on narrow screens. */
+.research-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+/* 16:9 responsive wrapper for an embedded YouTube/Vimeo iframe. */
+.video-embed {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+}
+
+.video-embed iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.research-callout {
+    background-color: var(--surface-hover);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--primary);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    margin: 2rem 0;
+}
+
+footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    background-color: var(--surface);
+}

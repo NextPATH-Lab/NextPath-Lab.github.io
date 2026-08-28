@@ -1,0 +1,25 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const wikiEntries = await getCollection('wiki');
+  return wikiEntries.map(entry => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<Layout title={entry.data.title}>
+    <h1 class="text-gradient">{entry.data.title}</h1>
+    <p style="color: var(--text-muted); font-style: italic;">
+        {new Date(entry.data.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+    </p>
+    <div style="margin-top: 2rem; line-height: 1.8;">
+        <Content />
+    </div>
+</Layout>
