@@ -2,4 +2,7 @@
 import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
-export default defineConfig({});
+export default defineConfig({
+  // Replace with your GitHub username and repository name
+    site: 'https://nextpath-lab.github.io',
+});
